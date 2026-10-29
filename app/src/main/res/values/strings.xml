@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Appointment Doctor</string>
+    <string name="explorer">Explorer</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
 </resources>

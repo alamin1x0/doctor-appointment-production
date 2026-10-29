@@ -3,14 +3,12 @@ package com.developeralamin.appointmentdoctor.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.developeralamin.appointmentdoctor.R
 import com.developeralamin.appointmentdoctor.databinding.ActivityDoctorDetailsBinding
 import com.developeralamin.appointmentdoctor.domain.DoctorModel
+import com.developeralamin.appointmentdoctor.helper.WishlistManager
 
 class DoctorDetailsActivity : AppCompatActivity() {
 
@@ -36,6 +34,15 @@ class DoctorDetailsActivity : AppCompatActivity() {
             addressTxt.text = item.Address
             exprienseTxt.text = "${item.Expriense} Years"
             ratingTxt.text = "${item.Rating}"
+
+            // Setup favorite icon state
+            var isFav = WishlistManager.isFavorite(this@DoctorDetailsActivity, item.Id)
+            favBtn.setImageResource(if (isFav) R.drawable.fav_bold else R.drawable.favorite_white)
+
+            favBtn.setOnClickListener {
+                isFav = WishlistManager.toggleFavorite(this@DoctorDetailsActivity, item.Id)
+                favBtn.setImageResource(if (isFav) R.drawable.fav_bold else R.drawable.favorite_white)
+            }
 
             backBtn.setOnClickListener { finish() }
 

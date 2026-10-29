@@ -48,6 +48,7 @@
         android:background="@drawable/purple_bg"
         android:drawableEnd="@drawable/white_arrow"
         android:text="Get Started"
+        android:visibility="gone"
         android:paddingStart="8dp"
         android:paddingEnd="16dp"
         android:textColor="@color/white"
